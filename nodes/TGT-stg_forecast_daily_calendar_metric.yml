@@ -1,0 +1,163 @@
+fileVersion: 1
+id: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+name: stg_forecast_daily_calendar_metric
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TGT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ecdd760a-6048-41e2-9f83-aec51863e885
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: STRING
+        description: ""
+        name: city_name
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45b75ee8-2e55-4ae4-a4f7-26969110f20d
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: initcap(`forecast_daily_calendar_metric`.`city_name`)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf86c7a4-3234-4fc8-b881-5edb5ac8e51f
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: STRING
+        description: ""
+        name: country_code
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d0a7ce09-34c5-4451-aaa0-33c62688c98c
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6aec436c-e6d6-42d0-93d7-3939148dfdef
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: DOUBLE
+        description: ""
+        name: latitude
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58e66c76-d0e4-4673-a366-73d797b30205
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c7a30a6-02e2-4a2d-a524-d5a3d6f3bcf4
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: DOUBLE
+        description: ""
+        name: longitude
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41d68e33-2eea-46fc-bab9-9d7f2478edb0
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0760e3d2-d275-4d93-ad7d-80cc5d1b5908
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: DATE
+        description: ""
+        name: date
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2add2d9b-8f96-4628-a236-f1001bd22de5
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79658b63-356a-4c75-aba9-7b115e0589a4
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: INT
+        description: ""
+        name: cloud_cover_perc_avg
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ec3baf70-891f-4ee4-95f9-d85688962311
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f926ef87-e141-42be-9001-85bef33f27e2
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: INT
+        description: ""
+        name: cloud_cover_perc_max
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 610fcfd0-6219-4191-a909-9e3086166c75
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7e88b0b-62d7-4e55-b2ca-43aacb004d57
+          stepCounter: 3e06498f-8efd-4527-a2c1-8dca56eb7162
+        config: {}
+        dataType: INT
+        description: ""
+        name: cloud_cover_perc_min
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49145048-9238-4fb5-ba80-fe4b1cf3c70a
+                stepCounter: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          forecast_daily_calendar_metric: 0250de5e-3e23-4f43-8390-4052fc29f5fb
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: forecast_daily_calendar_metric
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'forecast_daily_calendar_metric') }} `forecast_daily_calendar_metric`
+            WHERE `forecast_daily_calendar_metric`.`country_code` = 'us'
+        name: stg_forecast_daily_calendar_metric
+        noLinkRefs: []
+  name: stg_forecast_daily_calendar_metric
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
