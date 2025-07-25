@@ -1,0 +1,19 @@
+config:
+  entities:
+    nodeTypes:
+      "461":
+        defaultStorageLocation: null
+        isDisabled: false
+      "468":
+        defaultStorageLocation: null
+        isDisabled: false
+      "478":
+        defaultStorageLocation: null
+        isDisabled: false
+  packageVariables: ""
+fileVersion: 1
+id: "@coalesce/databricks/functional-node-types"
+name: Functional
+packageID: "@coalesce/databricks/functional-node-types"
+releaseID: f4163c04-39ef-4444-bad9-15b82215734f
+type: Package

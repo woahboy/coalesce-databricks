@@ -1,16 +1,17 @@
 fileVersion: 1
-id: 5e9e128e-392b-4053-9b30-2d1f50464a65
+id: f3b84318-3582-4f9e-872c-3e89f659b53a
 name: stg_customer
 operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
     preSQL: ""
+    selectDistinct: true
     testsEnabled: true
     truncateBefore: true
   database: ""
   deployEnabled: true
-  description: ""
+  description: Creates and populates the stage table stg_customer with data from the source tables customer, nation and region, including a derived column c_value based on c_acctbal and c_mktsegment.
   isMultisource: false
   locationName: TGT
   materializationType: table
@@ -19,179 +20,239 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 246c0bb7-0028-4a80-9331-28fdb9e98851
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 79e4aecd-cc36-4f1c-b7cb-b36f9946eeb1
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: LONG
-        description: ""
+        description: |-
+          The customer key column, 'c_custkey', originates from the 'customer' table in the source system.
+          - It serves as a unique identifier for each customer record.
+          - This column is essential for linking customer information across various data models and is often used in reports and dashboards to analyze customer-related metrics.
+          - As a primary key, it ensures data integrity and efficient data retrieval.
+          - No transformations are applied to this column.
         name: c_custkey
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5259f1ff-8367-4dd7-8427-124d673b787e
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 4153d9fb-ad34-4052-9269-416ebe214a18
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e1ebb6e6-b446-4507-a4b1-08de82bf2a98
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 59a13968-6b33-4426-954b-2101298a0488
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The customer name column, 'c_name', is sourced directly from the 'customer' table.
+          - It represents the full name of the customer.
+          - This information is valuable for customer profiling, targeted marketing campaigns, and personalized customer service initiatives.
+          - It can be used in conjunction with other customer attributes to generate customer-centric reports and KPIs.
+          - No transformations are applied to this column.
         name: c_name
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 94e1a6f6-2b41-4086-a4e3-8880392d07cc
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 6a9eb08f-b9d5-43d7-8672-bf68119c9a81
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: fec86470-e522-4459-b341-dccc2732a92d
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 0f51ff17-9314-424d-99c6-11839c17925f
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The customer address column, 'c_address', comes directly from the 'customer' table in the source system.
+          - It provides the physical address of the customer.
+          - This information is crucial for logistics, delivery services, and geographical analysis of customer distribution.
+          - It supports various business intelligence applications, such as mapping customer locations and optimizing service areas.
+          - No transformations are applied to this column.
         name: c_address
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: c8adc4b2-0799-4c84-85e6-bd1150df099a
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: dd9f8f84-170f-44c1-ad23-21b9db5ebb4b
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9585a674-c883-49a7-8449-54e0d0d3a937
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 70efb598-c922-4c8b-ae28-a4d76a18ac1b
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The customer phone number column, 'c_phone', is sourced directly from the 'customer' table.
+          - It stores the contact phone number for each customer.
+          - This is a key attribute for customer communication, support services, and marketing outreach.
+          - It can be used to track customer interactions and improve customer engagement strategies.
+          - No transformations are applied to this column.
         name: c_phone
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: b93de4ae-4004-40f6-bed9-44fc6fe7dfa8
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 2d7558b6-443f-46a3-818a-afb36968776f
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b67ad089-dbf1-4e76-a06a-1ad5254085d5
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 9be6c4b5-defe-4fa7-9ad3-c6c08dceea85
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: DECIMAL
-        description: ""
+        description: |-
+          The customer account balance column, 'c_acctbal', is sourced from the 'customer' table.
+          - It represents the current balance of the customer's account.
+          - This is a critical financial metric used for credit risk assessment, revenue analysis, and customer profitability calculations.
+          - It feeds into various financial reports and is essential for making informed business decisions.
+          - No transformations are applied to this column.
         name: c_acctbal
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f5529e80-6957-45b9-add7-7fd7e611ada9
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 026d8026-c98b-42e4-9d6e-643d80f0d35c
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: edb0f50f-0f4c-482d-8366-f09ff4cb97a9
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: dcabf873-09c0-41b7-b4f5-9a43382bb1ba
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The customer market segment column, 'c_mktsegment', is derived directly from the 'customer' table.
+          - It categorizes customers into different market segments.
+          - This is valuable for targeted marketing, product development, and sales strategies.
+          - It enables businesses to tailor their offerings to specific customer groups and optimize marketing ROI.
+          - No transformations are applied to this column.
         name: c_mktsegment
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: dad62602-4bfb-4ff4-9b40-f1b4a8701d97
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 0383791d-db6b-4e6b-ad68-30e16541b0a8
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 851aa2f8-c387-4a89-a8bc-e9bbdb398b1a
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 026802b8-1509-4590-8e48-b07c408d3c3f
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The customer value column, 'c_value', is derived from the 'customer' table based on 'c_acctbal' and 'c_mktsegment'.
+          - It categorizes customers as 'High' or 'Low' value.
+          - Customers with an account balance greater than 5000 and belonging to either the 'BUILDING' or 'HOUSEHOLD' market segments are classified as 'High' value; otherwise, they are 'Low' value.
+          - This categorization helps prioritize customer service and marketing efforts towards high-value customers.
+          - The CASE statement transformation logic is: `case when `customer`.`c_acctbal` > 5000 and `customer`.`c_mktsegment` in ('BUILDING', 'HOUSEHOLD') THEN 'High' ELSE 'Low' END`
         name: c_value
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: dad62602-4bfb-4ff4-9b40-f1b4a8701d97
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 0383791d-db6b-4e6b-ad68-30e16541b0a8
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: case when `customer`.`c_acctbal` > 5000 and `customer`.`c_mktsegment` in ('BUILDING', 'HOUSEHOLD') THEN 'High' ELSE 'Low' END
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b9770987-964e-4cab-bddc-ffdf3cf2659d
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: e954ff23-6265-4226-a090-e597ebdffb02
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The customer comment column, 'c_comment', originates directly from the 'customer' table.
+          - It contains descriptive comments or notes about the customer.
+          - This can include feedback, special requests, or other relevant information.
+          - The comments can be used for customer service improvements, issue resolution, and personalized interactions.
+          - No transformations are applied to this column.
         name: c_comment
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4550f061-9a00-46ad-96ca-e01c52d7b53e
-                stepCounter: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
+              - columnCounter: 09c1b115-839c-4e6d-b223-af6bdc7ccce1
+                stepCounter: 4b467449-d03b-4669-8c1d-e8d61b773596
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 7fe62d5f-72b2-4978-b0d3-833a16e81ba7
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 089e52dd-7b3c-491f-953c-811ff81b33a3
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The nation name column, 'n_name', is sourced directly from the 'nation' table.
+          - It represents the name of a nation.
+          - This is used in geographical reporting, international sales analysis, and supply chain management.
+          - It facilitates the aggregation of data by nation and provides insights into regional performance.
+          - No transformations are applied to this column.
         name: n_name
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5f251b02-201d-486d-9c41-fedd46a0db84
-                stepCounter: 2e91925e-3681-4809-bc43-b5dfa772c438
+              - columnCounter: 3132bc1e-dd4d-4a40-bd0d-730d545f7a37
+                stepCounter: 3cad1356-f0fd-4da3-9204-853013fe0bdb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 26741a53-07ca-459e-b65e-7bb0e409d962
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 561ef035-6c14-47dc-a1c1-8d66724d15e4
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The nation comment column, 'n_comment', is sourced directly from the 'nation' table.
+          - It contains descriptive comments or notes about the nation.
+          - This information is used for detailed regional analysis, geopolitical studies, and understanding country-specific factors.
+          - The comments provide additional context for interpreting nation-level data and trends.
+          - No transformations are applied to this column.
         name: n_comment
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4ec2222a-c738-4644-882b-d6a9631e07fb
-                stepCounter: 2e91925e-3681-4809-bc43-b5dfa772c438
+              - columnCounter: afb187ef-b823-4b41-9984-7247973a0b20
+                stepCounter: 3cad1356-f0fd-4da3-9204-853013fe0bdb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b4ec21a8-dd8d-4b8e-837c-fba207d0907c
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 57af93b7-51dd-4cf8-8f75-1afa2b30ebae
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The region name column, 'r_name', is sourced directly from the 'region' table.
+          - It represents the name of a geographical region.
+          - This is used in regional sales analysis, supply chain optimization, and geographical reporting.
+          - It allows for the aggregation of data by region and provides insights into regional performance variations.
+          - No transformations are applied to this column.
         name: r_name
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 6ca7be08-745f-4ff9-8884-55e0b067368c
-                stepCounter: b927c124-a153-4ea0-a4fc-3e5f62588c7e
+              - columnCounter: 40645194-9001-46fd-bc34-999d86b2ca72
+                stepCounter: 2c999946-c91e-4df6-98b1-7099609b9bfb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6159d573-541d-4b7d-b80a-7b7308f9af5f
-          stepCounter: 5e9e128e-392b-4053-9b30-2d1f50464a65
+          columnCounter: 576f8ff0-894d-4898-9eec-5ab665ac150b
+          stepCounter: f3b84318-3582-4f9e-872c-3e89f659b53a
         config: {}
         dataType: STRING
-        description: ""
+        description: |-
+          The region comment column, 'r_comment', is sourced directly from the 'region' table.
+          - It contains descriptive comments or notes about the region.
+          - This information is useful for detailed geographical analysis, understanding regional dynamics, and providing context for regional data.
+          - The comments provide additional insights into the characteristics and factors influencing the region.
+          - No transformations are applied to this column.
         name: r_comment
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 53dacad0-bb01-4409-884c-8b6d3369b510
-                stepCounter: b927c124-a153-4ea0-a4fc-3e5f62588c7e
+              - columnCounter: dce745df-3ebe-449d-9834-980b9debeaa9
+                stepCounter: 2c999946-c91e-4df6-98b1-7099609b9bfb
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          customer: 49a2af71-d1c2-42c4-8332-4d6ac92c5fe6
-          nation: 2e91925e-3681-4809-bc43-b5dfa772c438
-          region: b927c124-a153-4ea0-a4fc-3e5f62588c7e
+          customer: 4b467449-d03b-4669-8c1d-e8d61b773596
+          nation: 3cad1356-f0fd-4da3-9204-853013fe0bdb
+          region: 2c999946-c91e-4df6-98b1-7099609b9bfb
         customSQL:
           customSQL: ""
         dependencies:
@@ -213,7 +274,7 @@ operation:
   name: stg_customer
   overrideSQL: false
   schema: ""
-  sqlType: Stage
+  sqlType: "536"
   type: sql
   version: 1
 type: Node

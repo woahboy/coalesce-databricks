@@ -1,0 +1,13 @@
+config:
+  entities:
+    nodeTypes:
+      "368":
+        defaultStorageLocation: null
+        isDisabled: false
+  packageVariables: ""
+fileVersion: 1
+id: "@coalesce/databricks/delta-live-table"
+name: DLT
+packageID: "@coalesce/databricks/delta-live-table"
+releaseID: ac4c9de7-1276-43d1-ad9d-c7ac3511d9ef
+type: Package

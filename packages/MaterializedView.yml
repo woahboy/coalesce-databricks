@@ -1,0 +1,13 @@
+config:
+  entities:
+    nodeTypes:
+      "368":
+        defaultStorageLocation: null
+        isDisabled: false
+  packageVariables: ""
+fileVersion: 1
+id: "@coalesce/databricks/materialized-view"
+name: MaterializedView
+packageID: "@coalesce/databricks/materialized-view"
+releaseID: b99af4fc-82cd-4191-8b25-a7446d01e4d5
+type: Package
